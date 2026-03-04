@@ -1,0 +1,162 @@
+:root {
+  --bg-1: #fff9e8;
+  --bg-2: #e8f7ff;
+  --card: #ffffff;
+  --primary: #ff8f00;
+  --primary-dark: #f57c00;
+  --accent: #26c6da;
+  --text: #222;
+  --ok: #2e7d32;
+  --ng: #c62828;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background: linear-gradient(120deg, var(--bg-1), var(--bg-2));
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.8vw, 2.4rem);
+}
+
+.hero p {
+  margin: 8px 0 0;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+label {
+  font-weight: 700;
+}
+
+select,
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+
+select {
+  background: #fffde7;
+  border: 2px solid #ffe082;
+}
+
+.btn {
+  cursor: pointer;
+  background: #efefef;
+  transition: transform 0.07s ease, filter 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.btn.primary:hover {
+  background: var(--primary-dark);
+}
+
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#question {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin: 6px 0 18px;
+}
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.choice {
+  text-align: left;
+  background: #f6fbff;
+  border: 2px solid transparent;
+  min-height: 62px;
+  font-weight: 700;
+}
+
+.choice:hover {
+  border-color: var(--accent);
+}
+
+.choice.correct {
+  background: #e8f5e9;
+  border-color: var(--ok);
+}
+
+.choice.wrong {
+  background: #ffebee;
+  border-color: var(--ng);
+}
+
+.result {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fafafa;
+  line-height: 1.55;
+}
+
+.result.correct {
+  border-left: 6px solid var(--ok);
+}
+
+.result.wrong {
+  border-left: 6px solid var(--ng);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .choices {
+    grid-template-columns: 1fr;
+  }
+}
